@@ -1,0 +1,60 @@
+swagger: "2.0"
+info:
+  version: 1.0.0
+  title: CricApp
+  description: Cricket betting app using sportmonks api
+  contact:
+    name: Infynno
+    url: https://www.infynno.com
+    email: sales@infynno.com
+host: cricapp.infynno.com
+consumes: ["application/json"]
+produces: ["application/json"]
+securityDefinitions:
+  -bearer: 
+    type: "apiKey"
+    name: "Authorization"
+    in: "header"
+security: [
+  -bearer: []
+]
+paths:
+  /bets:
+    get:
+      tags:
+        - "bet"
+      summary: "Get placed bets."
+      description: ""
+      parameters: []
+      responses:
+        200:
+          description: "Bets Found."
+          schema:
+            type: "array"
+            items: 
+              $ref: "#/definitions/Bet"
+
+definitions:
+  Bet:
+    type: "object"
+    properties:
+      _id:
+        type: "string"
+      team1:
+        type: "integer"
+      team2:
+        type: "integer"
+      date:
+        type: "string"
+      amount:
+        type: "integer"
+      beton:
+        type: "integer"
+      match_id:
+        type: "integer"
+      user:
+        type: "string"
+      createdAt:
+        type: "string"
+      updatedAt:
+        type: "string"
